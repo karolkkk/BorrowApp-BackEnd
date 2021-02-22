@@ -7,6 +7,7 @@ namespace Borrow
     {
         public RepositoryContext(DbContextOptions<RepositoryContext> options) : base(options) { }
         public DbSet<User> Owners { get; set; }
+        public DbSet<Item> Items { get; set; }
         /*protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
            => optionsBuilder.UseNpgsql("Host=localhost;Database=BorrowApp;Username=postgres;Password=Ciastko2020!");*/
     }
