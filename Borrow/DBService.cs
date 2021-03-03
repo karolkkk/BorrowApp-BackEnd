@@ -1,4 +1,5 @@
-﻿using Borrow.Models;
+﻿using Borrow.Interfaces;
+using Borrow.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -6,10 +7,10 @@ using System.Threading.Tasks;
 
 namespace Borrow
 {
-    public class DBService
+    public class DBService : IDbService
     {
         RepositoryContext _context;
-        DBService(RepositoryContext context)
+        public DBService(RepositoryContext context)
         {
             _context = context;
         }

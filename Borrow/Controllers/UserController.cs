@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Borrow.Interfaces;
+using Borrow.Models;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -11,10 +13,18 @@ namespace Borrow.Controllers
     [ApiController]
     public class UserController : ControllerBase
     {
-        [HttpGet]
-        public IActionResult GetUSer()
+        IDbService _dbService;
+        public UserController(IDbService dbService) 
         {
-            return (Ok(new { name = "Nick" }));
+            _dbService = dbService;
+
+        }
+        [HttpGet]
+        public async Task<IActionResult> AddUSer(string firstname,string email)
+        {
+            User newUser = new User { FirstName = firstname, Email = email };
+            await _dbService.AddUserToDb(newUser);
+            return (Ok(newUser));
         }
     }
 }

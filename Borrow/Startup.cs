@@ -1,4 +1,5 @@
 using Borrow.Extensions;
+using Borrow.Interfaces;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -35,6 +36,8 @@ namespace Borrow
             services.ConfigureIISIntegration();
             services.AddControllers();
             services.AddSwaggerGen();
+            //services.AddHttpClient();
+            services.AddScoped<IDbService, DBService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
