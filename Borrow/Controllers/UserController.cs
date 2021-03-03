@@ -7,14 +7,14 @@ using System.Threading.Tasks;
 
 namespace Borrow.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/user")]
     [ApiController]
     public class UserController : ControllerBase
     {
-        /*[HttpGet]
-        public IEnumerable<> Get()
+        [HttpGet]
+        public IActionResult GetUSer()
         {
-           
-        }*/
+            return (Ok(new { name = "Nick" }));
+        }
     }
 }
