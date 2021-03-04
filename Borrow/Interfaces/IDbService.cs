@@ -9,5 +9,8 @@ namespace Borrow.Interfaces
     public interface IDbService
     {
         Task AddUserToDb(User user);
+        Task DeleteUserFromDb(User user);
+        User GetUserFromDb(string email);
+
     }
 }
